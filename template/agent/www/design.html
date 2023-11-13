@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>RAVK :: Agent</title>
+  <style>
+    body {
+      background: url("{% static 'logo.jpg' %}");
+      background-size: cover;
+      background-color: #000000;
+      color: white;
+      overflow: hidden;
+      padding: 8px;
+      font-family: monospace !important;
+    }
+
+    .cls__head {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      padding: 8px;
+    }
+
+    .cls__head img{
+      width: 120px
+    }
+
+    #title {
+      font-family: cursive !important;
+      font-size: 28px;
+      text-align: center;
+      color: white;
+      text-shadow: 0 0 18px black;
+      font-weight: normal;
+    }
+
+    .nav {
+      /* background-color: rgb(222,222,222); */
+      text-align: center;
+      padding: 8px;
+
+    }
+
+    .nav a {
+      display: inline-flex;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bolder;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid blue;
+      color: red;
+      background-color: yellowgreen;
+    }
+
+    .nav a:hover {
+      border: 2px solid red;
+      color: blue;
+      background-color: greenyellow;
+    }
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+
+  <div class="cls__head">
+    <img class="img_icon" src="/static/icon.png">
+    <h2 id="title">Social Media and Misleading Information in a Democracy: Mechanism Design Approach</h2>
+    <img class="img_icon" src="/static/icon.png">
+  </div>
+
+  <hr>
+
+  <div class="nav">
+    <a href="{% url 'Traverse_DataSets' %}">Predict Social Media News Type</a>
+    <a href="{% url 'ViewYourProfile' %}">View Agent Profile</a>
+    <a href="{% url 'login' %}">Logout</a>
+  </div>
+
+  <hr>
+
+  <div class="mainholder">
+    {% block userblock %}
+    {% endblock %}
+  </div>
+</body>
+
+</html>

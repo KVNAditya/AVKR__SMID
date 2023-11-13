@@ -1,0 +1,181 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<title>Agent Register</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<head>
+    <link rel="icon" href="{% static 'icon.png' }" type="image/x-icon" />
+
+    <style>
+        body {
+            background: url("{% static 'logo.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+            font-family: monospace !important;
+        }
+
+
+        .cls__head {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            padding: 8px;
+        }
+
+        .cls__head img {
+            width: 120px
+        }
+
+        #title {
+            font-family: cursive;
+            font-size: 28px;
+            text-align: center;
+            color: white;
+            text-shadow: 0 0 18px black;
+        }
+
+        .div__register {
+            position: fixed;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -80%);
+            width: 400px;
+        }
+
+        #fs__register {
+            background-color: violet;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 18px white;
+        }
+
+        #fs__register:hover {
+            background-color: palevioletred;
+            color: black;
+            box-shadow: 0 0 18px black;
+        }
+
+        .p__register_form {
+            color: black;
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .form-group input {
+            text-align: center;
+            background-color: transparent;
+            border: 2px solid black;
+        }
+
+        .form-group input:hover {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: transparent;
+            border: 2px solid black;
+            border-radius: 12px;
+            padding: 4px;
+            color: black;
+        }
+
+        .btn a {
+            text-decoration: none;
+            color: black !important;
+        }
+
+        .btn:hover {
+            background-color: black;
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .btn a:hover {
+            background-color: black;
+            color: white !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br>
+
+    <div class="cls__head">
+        <img class="img_icon" src="/static/icon.png">
+        <h2 id="title">Social Media and Misleading Information in a Democracy: Mechanism Design Approach</h2>
+        <img class="img_icon" src="/static/icon.png">
+    </div>
+
+    <hr>
+
+    <div class="div__register">
+        <form role="form" method="POST">
+            {% csrf_token %}
+            <fieldset id="fs__register">
+                <p class="p__register_form">Agent Registration</p>
+                <div class="form-group">
+                    <input type="text" name="username" id="username" placeholder="User Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="phoneno" id="phoneno" placeholder="Mobile Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="country" id="country" placeholder="Country" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="state" id="state" placeholder="State" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="city" id="city" placeholder="City" required>
+                </div>
+
+
+                <div class="form-check">
+                    <label class="form-check-label"></label>
+                </div>
+                <div>
+                    <input type="submit" class="btn" name="submit" value="Register">
+                </div>
+                <hr>
+                <div>
+                    <p class="p__register_form">Agent Login</p>
+                    <a href="{% url 'login' %}"><button type="button" class="btn">Agent Login</button></a>
+
+
+                </div>
+            </fieldset>
+            <div><br>
+
+            </div>
+        </form>
+    </div>
+</body>
+
+
+</html>

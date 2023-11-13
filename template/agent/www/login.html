@@ -1,0 +1,162 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<title>Agent Login</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<head>
+
+    <link rel="icon" href="{% static 'icon.png' }" type="image/x-icon" />
+
+
+
+    <style>
+        body {
+            background: url("{% static 'logo.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+            font-family: monospace !important;
+        }
+
+        .cls__head {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            padding: 8px;
+        }
+
+        .cls__head img {
+            width: 120px
+        }
+
+        #title {
+            font-family: cursive !important;
+            font-size: 28px !important;
+            text-align: center !important;
+            color: white !important;
+            text-shadow: 0 0 18px black !important;
+        }
+
+        .div__login {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+        }
+
+        #fs__login {
+            background-color: yellowgreen;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 18px white;
+        }
+
+        #fs__login:hover {
+            background-color: greenyellow;
+            color: black;
+            box-shadow: 0 0 18px black;
+        }
+
+        .p__login_form {
+            color: black;
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .form-group input {
+            text-align: center;
+            background-color: transparent;
+            border: 2px solid black;
+        }
+
+        .form-group input:hover {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: transparent;
+            border: 2px solid black;
+            border-radius: 12px;
+            padding: 4px;
+            color: black;
+        }
+
+        .btn a {
+            text-decoration: none;
+            color: black !important;
+        }
+
+        .btn:hover {
+            background-color: black;
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .btn a:hover {
+            background-color: black;
+            color: white !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br>
+
+    <div class="cls__head">
+        <img class="img_icon" src="/static/icon.png">
+        <h2 id="title">Social Media and Misleading Information in a Democracy: Mechanism Design Approach</h2>
+        <img class="img_icon" src="/static/icon.png">
+    </div>
+    <hr>
+    <div class="div__login">
+        <form method="POST" role="form">
+            {% csrf_token %}
+
+            <fieldset id="fs__login">
+                <p class="p__login_form">Agent Login</p>
+
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="User Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div>
+                    <input type="submit" name="submit_login" class="btn" value="Log-In">
+                </div>
+
+                <hr>
+                <hr>
+
+
+                <div>
+                    <p class="p__login_form">Agent Registration</p>
+                    <button class="btn"><a href="{% url 'Register1' %}">Register Agent</a></button>
+                    <hr>
+                    <p class="p__login_form">Organization Login</p>
+                    <button class="btn"><a href="{% url 'serviceproviderlogin' %}">Organization</a></button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+
+
+</html>

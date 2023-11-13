@@ -1,0 +1,126 @@
+{% extends 'design.html' %}
+{% block userblock %}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RAVK :: Organization</title>
+    <style>
+        body {
+            background: url("{% static 'logo.jpg' %}");
+            background-size: cover;
+            background-color: #000000;
+            color: white;
+            overflow: hidden;
+            padding: 8px;
+            font-family: monospace !important;
+        }
+
+        .div__nav1 {
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%);
+            width: 80%;
+
+        }
+
+        .p__nav1 {
+            font-size: 20px;
+        }
+
+        #fs__nav1 {
+            background-color: black;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 18px white;
+        }
+
+        table {
+            font-size: 18px;
+            margin: auto;
+        }
+
+        table,table * {
+            border-radius: 8px;
+        }
+
+        th {
+            color: black;
+            background-color: gray;
+            padding: 8px;
+        }
+
+        td {
+            font-weight: bold;
+            padding: 8px;
+        }
+
+		td:nth-child(2){
+			color: white;
+            background-color: black;
+		}
+
+		td:nth-child(3){
+			color: black;
+            background-color: white;
+		}
+
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+    
+    <div class="div__nav1">
+        <form role="form" method="POST">
+            {% csrf_token %}
+            <fieldset id="fs__nav1">
+                <p class="p__nav1">View Agent Data</p>
+                <table>
+                    <tr>
+                        <th>Agent(s)</th>
+						<td>	:	</td>
+						<td>{{objects.username}}</td>
+					</tr>
+					<tr>
+                        <th>e-mail</th>
+						<td>	:	</td>
+						<td>{{objects.email}}</td>
+					</tr>
+					<tr>
+						<th>Password</th>
+						<td>	:	</td>
+						<td>{{objects.password}}</td>
+					</tr>
+					<tr>
+						<th>Mobile Number</th>
+						<td>	:	</td>
+						<td>{{objects.phoneno}}</td>
+					</tr>
+					<tr>
+						<th>Country</th>
+						<td>	:	</td>
+						<td>{{objects.country}}</td>
+					</tr>
+					<tr>
+						<th>State</th>
+						<td>	:	</td>
+						<td>{{objects.state}}</td>
+					</tr>
+					<tr>
+						<th>City</th>
+						<td>	:	</td>
+						<td>{{objects.city}}</td>
+					</tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+    
+    {% endblock %}
+</body>
+</html>

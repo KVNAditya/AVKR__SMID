@@ -1,0 +1,115 @@
+{% extends 'design1.html' %}
+{% block researchblock %}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RAVK :: Organization</title>
+    <style>
+        body {
+            background: url("{% static 'logo.jpg' %}");
+            background-size: cover;
+            background-color: #000000;
+            color: white;
+            overflow: hidden;
+            padding: 8px;
+            font-family: monospace !important;
+        }
+
+        .div__nav2{
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%);
+            width: 80%;
+
+        }
+
+        .p__nav2{
+            font-size: 20px;
+        }
+        #fs__nav2{
+            background-color: black;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 18px white;
+        }
+
+        table{
+            font-size: 18px;
+			margin: auto;
+        }
+
+        table,table *{
+            border: 2px solid white;
+        }
+
+        th{
+            color: black;
+            background-color: gray;
+			padding: 8px;
+        }
+
+        td{
+            background-color: white;
+            font-weight: bold;
+			padding: 8px;
+        }
+
+        td:first-child{
+            color: red;
+        }
+
+        td:last-child{
+            color: blue;
+        }
+    
+        
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+
+<body>
+
+    <div class="div__nav2">
+
+
+
+        <form role="form" method="POST">
+            {% csrf_token %}
+            <fieldset id="fs__nav2">
+                <p class="p__nav2">View Social Media News Type(Misleading or True)</p>
+                <hr>
+                <div>
+                    <table>
+                        <tr>
+                            <th>Data (Posted News)</th>
+                            <th>Prediction</th>
+                        </tr>
+                        {% for object in list_objects %}
+                        <tr>
+                            <td>
+                                {{object.News_Data}}
+                            </td>
+                            <td>{{object.Prediction}}</td>
+                        </tr>
+
+                        {% endfor %}
+                    </table>
+
+
+
+                </div>
+
+
+
+
+            </fieldset>
+        </form>
+    </div>
+    {% endblock %}
+</body>

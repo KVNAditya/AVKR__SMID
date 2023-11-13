@@ -1,0 +1,145 @@
+{% extends 'design.html' %}
+{% block userblock %}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RAVK :: Organization</title>
+    <style>
+        body {
+            background: url("{% static 'logo.jpg' %}");
+            background-size: cover;
+            background-color: #000000;
+            color: white;
+            overflow: hidden;
+            padding: 8px;
+            font-family: monospace !important;
+        }
+
+        .div__nav0 {
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%);
+            width: 80%;
+            background-color: black;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 18px white;
+
+        }
+
+        .p__nav0 {
+            font-size: 20px;
+        }
+
+        table {
+            font-size: 18px;
+            margin: auto;
+            text-align: center;
+        }
+
+        table,
+        table * {
+            border-radius: 8px;
+        }
+
+        th {
+            color: black;
+            background-color: gray;
+            padding: 8px;
+        }
+
+        td {
+            font-weight: bold;
+            padding: 8px;
+        }
+
+        td:nth-child(2) {
+            color: white;
+            background-color: black;
+        }
+
+        td:nth-child(3) {
+            color: black;
+            background-color: white;
+        }
+
+        .cls__ta {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .btn{
+            border: 2px solid yellowgreen;
+            border-radius: 12px;
+            padding: 8px;
+            color: orange;
+            background-color: gray;
+            font-weight: bold;
+        }
+
+        .btn:hover{
+            border: 2px solid greenyellow;
+            color: blue;
+            background-color: rgb(228,228,228);
+            font-weight: bold;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+
+    <div class="div__nav0">
+
+        <fieldset class="fs__nav0">
+
+
+            <form role="form" method="POST" id="f__nav0">
+                {% csrf_token %}
+                <p class="p__nav0">Prediction of Social-Media News Type</p>
+
+                <hr>
+
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>Enter Social Media News</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea name="keyword" rows="6" cols="60" class="cls__ta"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="submit" type="submit" class="btn" value="Predict">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            ------- ******* -------
+
+            <form role="form" method="POST">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>News Type</td>
+                        <td> : </td>
+                        <td>{{objs}}</td>
+                    </tr>
+                </table>
+            </form>
+        </fieldset>
+
+    </div>
+
+
+    {% endblock %}
+</body>

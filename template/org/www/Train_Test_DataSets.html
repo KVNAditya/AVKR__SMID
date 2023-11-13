@@ -1,0 +1,107 @@
+{% extends 'design1.html' %}
+{% block researchblock %}
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>RAVK :: Organization</title>
+	<style>
+        body {
+            background: url("{% static 'logo.jpg' %}");
+            background-size: cover;
+            background-color: #000000;
+            color: white;
+            overflow: hidden;
+            padding: 8px;
+            font-family: monospace !important;
+        }
+
+        .div__nav0{
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%);
+            width: 80%;
+
+        }
+
+        .p__nav0{
+            font-size: 20px;
+        }
+        #fs__nav0{
+            background-color: black;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 18px white;
+        }
+
+        table{
+            width: 100%;
+            font-size: 18px;
+        }
+
+        table,table *{
+            border: 2px solid white;
+        }
+
+        th{
+            color: black;
+            background-color: gray;
+        }
+
+        td{
+            background-color: white;
+            font-weight: bold;
+        }
+
+        td:first-child{
+            color: red;
+        }
+
+        td:last-child{
+            color: blue;
+        }
+    
+        
+    </style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+	<br><br>
+	<div class="div__nav0">
+		<form role="form" method="POST">
+			{% csrf_token %}
+			<fieldset id="fs__nav0">
+				<p class="p__nav0">Social-Media News Trained and
+					Tested Results</p>
+
+				<hr>
+				<div>
+					<table>
+						<tr>
+							<th>Model Type</th>
+							<th>Accuracy</th>
+						</tr>
+
+						{% for object in objs %}
+						<tr>
+							<td>{{object.names}}</td>
+							<td>{{object.ratio}}</td>
+						</tr>
+
+						{% endfor %}
+					</table>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+	{% endblock %}
+</body>
+
+</html>
